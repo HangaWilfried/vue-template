@@ -1,0 +1,54 @@
+@import 'tailwindcss';
+@plugin "daisyui";
+
+:root {
+  --size-xs: 0.75rem;
+  --size-sm: 0.875rem;
+  --size-base: 1rem;
+  --size-lg: 1.125rem;
+  --size-xl: 1.25rem;
+}
+
+@media (min-width: 40rem) {
+  :root {
+    --size-xs: 0.875rem;
+    --size-sm: 1rem;
+    --size-base: 1.125rem;
+    --size-lg: 1.25rem;
+    --size-xl: 1.375rem;
+  }
+}
+
+@media (min-width: 64rem) {
+  :root {
+    --size-xs: 1rem;
+    --size-sm: 1.125rem;
+    --size-base: 1.25rem;
+    --size-lg: 1.375rem;
+    --size-xl: 1.5rem;
+  }
+}
+
+@media (min-width: 80rem) {
+  :root {
+    --size-xs: 1.125rem;
+    --size-sm: 1.25rem;
+    --size-base: 1.375rem;
+    --size-lg: 1.5rem;
+    --size-xl: 1.625rem;
+  }
+}
+
+@theme {
+  --breakpoint-*: initial;
+
+  --breakpoint-tablet: 40rem;
+  --breakpoint-laptop: 64rem;
+  --breakpoint-desktop: 80rem;
+
+  --text-xs: var(--size-xs);
+  --text-sm: var(--size-sm);
+  --text-base: var(--size-base);
+  --text-lg: var(--size-lg);
+  --text-xl: var(--size-xl);
+}
