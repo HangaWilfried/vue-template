@@ -28,7 +28,6 @@ export const getLocalDate = (
   utcDate: string | Date,
   format = DateFormat.YEAR_MONTH_DATE_TIME
 ): string => {
-  // Automatic UTC → local timezone conversion
   return dayjs(utcDate).format(format);
 };
 
@@ -42,37 +41,24 @@ export const getUtcDate = (
   utcDate: string | Date,
   format = DateFormat.YEAR_MONTH_DATE_TIME
 ): string => {
-  // Keeps the date in UTC for display
   return dayjs(utcDate).utc(true).format(format);
 };
 
 /**
- * Calculates relative time from a date to now
- * @param date - Reference date (UTC or local)
+ * Calculates relative time from a date to now (local/generic comparison)
+ * @param date - Reference date (local or generic)
  * @returns Relative time (e.g., "2 hours ago", "in 3 days")
  */
 export const getDateToNow = (date: string | Date): string => {
-  // dayjs automatically handles comparison with current local time
   return dayjs(date).fromNow();
 };
 
 /**
- * Calculates relative time from a local date to now (in local timezone)
- * @param localDate - Local date reference
- * @returns Relative time calculated in local timezone
- */
-export const getLocalDateToNow = (localDate: string | Date): string => {
-  // Comparison local → local to avoid timezone shifts
-  return dayjs(localDate).fromNow();
-};
-
-/**
- * Calculates relative time from a UTC date to now (in UTC)
+ * Calculates relative time from a UTC date to now (UTC comparison)
  * @param utcDate - UTC date reference
  * @returns Relative time calculated in UTC
  */
 export const getUtcDateToNow = (utcDate: string | Date): string => {
-  // Comparison UTC → UTC to avoid timezone shifts
   return dayjs(utcDate).utc().fromNow();
 };
 
